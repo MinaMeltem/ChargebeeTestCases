@@ -4,7 +4,7 @@
    1. `features` > `dunning`
       1. This way if there are more feature-folders to house feature-files, they can all fall under the greater `features` directory,
 2. Name files using underscore `_`, keep camelCase for methods and modules, same goes with directories
-3. Name the feature file and feature after an action. 
+3. Name the feature file and feature after an action.
    1. ` Credit Card Attempts` => `Attempt to charge credit cards for dunned users`
 4. Gramatically:
    1. `And I have dunning <user> account` => `And I have a dunned <user>`
@@ -18,11 +18,12 @@
    1. I changed the `When` action to the next step, which is a new step `When the customer is dunned`
    2. `When first attempt of transaction is unsuccessful in customer account` => `And the first attempt to collect payment was unsuccessful`
    3. `And I should see credit card attemps are happening in the system in different days during dunning period` =>  `And I should see attempts to collect payment during the dunning period`
-   4. Watch out for unneeded spaces and new lines
-8. In `Dunning Emails`, you list a variable that has no examples `And I have unpaid <addon item> in my account`
-   1. I would like to be specific when using the words, `service, system, and environment`  or most other terms
-9. In alot of these features there were errors from copy and pasting it seems, I would just double or triple check commits.
-10. Most of these stories were business roles  `As a business...`
+8. Watch out for unneeded spaces and new lines, spelling errors etc.
+9. In `Dunning Emails`, you list a variable that has no examples `And I have unpaid <addon item> in my account`
+   1. I would like to be specific when using the words, `service, system, and environment`  or most other terms that describe technologies. So we can sync on examples for that when we get to it.
+10. In a lot of these features there were errors from copy and pasting it seems, I would just double or triple check commits.
+11. Most of these stories were business roles  `As a business...`
     1. So the features should also read from that perspective
     2. And the user in the scenarios are `billing agent` or `finance agent`
-11. Examples are probaly the most important part of a test. So lets stick to making sure we list all of them witj consistent headers and usage in the scenario. For instance, there were a couple of `| Addon Item |` that wasnt referenced in the test.
+12. Examples are probably the most important part of a test. So lets stick to making sure we list all of them with consistent headers and usage in the scenario. For instance, there were a couple of `| columns |` that wasn't referenced in the test.
+13. Lastly, I would encourage you to double and maybe triple check commits and the content before submitting. I narcissistically look at my commit and add stuff like this addendum and some changes.
