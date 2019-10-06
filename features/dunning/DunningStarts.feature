@@ -1,37 +1,23 @@
 
-Feature: Dunning Period Subscriptions
+Feature: Dunning starts for service/storage subscriptions
 
 
-	Scenario Outline: Dunning for storage subscription
-		Given I am a <user>
-		And I have monthly <storage> subscription
-		And I have an invalid payment method in chargebee system
-		When my first attempt to pay monthly storage invoice failed
+	Scenario Outline: Dun an account with unpaid storage/service subscription
+		Given I am a billing agent
+		And I have a dunned <user> account with <subscriptions>
+		When the first attempt to collect unpaid invoice item was unsuccessful
 		And I have past due amount
-		Then my account should be dunned
-		And my invoice item status displays "Payment Due"
-		And my dunning period starts
-
-
-		Examples:
-		|	user		  		|	storage             |
-		| CA new user 	| 5 X 10 Storage Plan |
-		| US new user 	| 5 X 10 Storage Plan |
-
-
-
-
-	Scenario Outline: Dunning for service subscription
-		Given I am a <user>
-		And I have an <service> subscription
-		And I have <addon item> in the subscription
-		And I have an invalid payment method in the chargebee system
-		When my first attempt to pay invoiced item  failed
-		And  invoice item status displays "Payment Due"
-		Then my account should be dunned
-		And my dunning period should start
+		Then the account should be dunned
+		And  unpaid invoice item status should displays "Payment Due"
+		
 
 		Examples:
-		|	user  				|	Appointment subcriptio      | Addon Item		        |
-		| CA new user 	| Service Subscription				| Appointment Service 	|
-		| CA new user 	| Service Subscription				| Busy Day Fee		 	    |
+		| user 	      		| subscription 	       |
+		| new CA user 		| Service Subscription |
+		| new CA user 		| Storage Subscription |
+		| new US user 		| Service Subscription |
+		| new US user 		| Storage Subscription |
+		| existing CA user 	| Service Subscription |
+		| existing CA user 	| Storage Subscription |
+		| existing US user 	| Service Subscription |
+		| existing US user 	| Storage Subscription |
