@@ -1,5 +1,5 @@
 
-Feature: After dunning period ends, status of the subscriptions reamins active
+Feature: After dunning period ends, subscriptions status reamins active
 
 	Scenario Outline: Storage/service Subscription stays active when the account dunned
 		Given I am a billing agent
