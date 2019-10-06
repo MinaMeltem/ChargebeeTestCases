@@ -1,28 +1,73 @@
 
-Feature: Dunning emails
+Feature: Dunning Emails
 
 	Scenario Outline: Dunning for independent appointment service subscription
 		Given I am a <user>
-		And I have <subcription>
-		And I have unpaid <addon item> in my account
+		And I have a <subcription>
+		And I have unpaid <addon> in my account
 		And I have an invalid payment method in the chargebee system
-		When first attempt of transaction in to pay the items in my account failed in ******(same day)
-		And my account became a dunning account
-		And my invoice status for the item changed to "Payment Due"
-		Then I should receive "Transaction Attempt Failed" notification email in the same day of my payment due
-		When system attempt to charge my invoice after 1 day of my payment Due
-		And transaction attempt failed again
-		Then I should receive second "Transaction Attempt Failed" notification email next day of my payment due
-		When system attempt to charge my invoice after 4 days of my payment Due
-		And transaction attempt failed again
-		Then I should receive third "Transaction Attempt Failed" notification email 4 days after of my payment due
-		When system attempt to charge my invoice after 8 days of my payment Due
-		And transaction attempt failed again
-		Then I should receive fourth "Transaction Attempt Failed" notification email 8 days after of my payment due
-		And after 17 days passed of my payment due
+		When my account is dunned
+		And my the status of unpaid item displays "Payment Due"
+		Then I should receive "Transaction Attempt Failed" notification emails in <specified retry days>
+		And after dunning period ends (17 days)
 		Then invoice status should change to "Not Paid"
+		And I should receive notification email.
+		
+		
+		
 
 		Examples:
-		|	  user				|	 subscription          |
-		| CA new user 	| Service Subscription	 |
-		| CA new user 	| Storage Subscription	 |
+		| user 		| subscription 		| addon 	         | specified retry days  |
+		
+		| New CA user	| Service Subscription 	| Appointment Fee        |     0		 | 
+		| New CA user 	| Storage Subscription 	| Monthly storage payment|     0  	         | 
+		| New CA user	| Service Subscription 	| Appointment Fee        |     1		 | 
+		| New CA user 	| Storage Subscription 	| Monthly storage payment|     1  	         | 
+		| New CA user	| Service Subscription 	| Appointment Fee        |     4		 | 
+		| New CA user 	| Storage Subscription 	| Monthly storage payment|     4  	         | 
+		| New CA user	| Service Subscription 	| Appointment Fee        |     8		 | 
+		| New CA user 	| Storage Subscription 	| Monthly storage payment|     8  	         | 
+		| New CA user	| Service Subscription 	| Appointment Fee        |     17		 | 
+		| New CA user 	| Storage Subscription 	| Monthly storage payment|     17  	         | 
+		
+		| New US user	| Service Subscription 	| Appointment Fee        |     0		 | 
+		| New US user 	| Storage Subscription 	| Monthly storage payment|     0  	         | 
+		| New US user	| Service Subscription 	| Appointment Fee        |     1		 | 
+		| New US user 	| Storage Subscription 	| Monthly storage payment|     1  	         | 
+		| New US user	| Service Subscription 	| Appointment Fee        |     4		 | 
+		| New US user 	| Storage Subscription 	| Monthly storage payment|     4  	         | 
+		| New US user	| Service Subscription 	| Appointment Fee        |     8		 | 
+		| New US user 	| Storage Subscription 	| Monthly storage payment|     8  	         | 
+		| New US user	| Service Subscription 	| Appointment Fee        |     17		 | 
+		| New US user 	| Storage Subscription 	| Monthly storage payment|     17  	         | 
+		
+		| Ext. CA user	| Service Subscription 	| Appointment Fee        |     0		 | 
+		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     0  	         | 
+		| Ext. CA user	| Service Subscription 	| Appointment Fee        |     1		 | 
+		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     1  	         | 
+		| Ext. CA user	| Service Subscription 	| Appointment Fee        |     4		 | 
+		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     4  	         | 
+		| Ext. CA user	| Service Subscription 	| Appointment Fee        |     8		 | 
+		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     8  	         | 
+		| Ext. CA user	| Service Subscription 	| Appointment Fee        |     17		 | 
+		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     17  	         | 
+		
+		| Ext. US user	| Service Subscription 	| Appointment Fee        |     0		 | 
+		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     0  	         | 
+		| Ext. US user	| Service Subscription 	| Appointment Fee        |     1		 | 
+		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     1  	         | 
+		| Ext. US user	| Service Subscription 	| Appointment Fee        |     4		 | 
+		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     4  	         | 
+		| Ext. US user	| Service Subscription 	| Appointment Fee        |     8		 | 
+		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     8  	         | 
+		| Ext. US user	| Service Subscription 	| Appointment Fee        |     17		 | 
+		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     17  	         | 
+		
+		
+		
+		
+		
+		
+		
+		
+	
