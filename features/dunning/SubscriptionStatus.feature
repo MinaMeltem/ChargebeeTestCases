@@ -9,12 +9,12 @@ Feature: After dunning period ends, status of the subscriptions reamins active
 		And the subscription remains an active
 
 		Examples:
-		| user | subscription |
-		| new CA user | Service Subscription |
-		| new CA user | Storage Subscription |
-		| new US user | Service Subscription |
-		| new US user | Storage Subscription |
-		| existing CA user | Service Subscription |
-		| existing CA user | Storage Subscription |
-		| existing US user | Service Subscription |
-		| existing US user | Storage Subscription |
+		| user		 	| subscription |
+		| new CA user 		| Service Subscription |
+		| new CA user 		| Storage Subscription |
+		| new US user 		| Service Subscription |
+		| new US user 		| Storage Subscription |
+		| existing CA user 	| Service Subscription |
+		| existing CA user 	| Storage Subscription |
+		| existing US user 	| Service Subscription |
+		| existing US user 	| Storage Subscription |
