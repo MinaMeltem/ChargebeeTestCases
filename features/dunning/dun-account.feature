@@ -1,7 +1,4 @@
-
-Feature: Dunning starts for service/storage subscriptions
-
-
+Feature: Dun an account
 	Scenario Outline: Dun an account with unpaid storage/service subscription
 		Given I am a billing agent
 		And I have a dunned <user> account with <subscriptions>
@@ -9,7 +6,7 @@ Feature: Dunning starts for service/storage subscriptions
 		And I have past due amount
 		Then the account should be dunned
 		And  unpaid invoice item status should displays "Payment Due"
-		
+
 
 		Examples:
 		| user 	      		| subscription 	       |

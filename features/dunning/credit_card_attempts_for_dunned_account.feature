@@ -1,11 +1,9 @@
-
-Feature: Credit Card Attempts
-
-	Scenario Outline: Attempt to charge credit cards for dunned users
+Feature: Credit card attempts for dunned account
+	Scenario Outline: Attempt to charge credit cards for dunned account
 		Given I am a billing agent
 		And I have dunned <user> account
-		And the user has <subcriptions> 
-		When first attempt to collect payment was unsuccessful 
+		And the user has <subcriptions>
+		When first attempt to collect payment was unsuccessful
 		Then the account becomes dunned
 		And the invoice item status should be "Payment Due"
 		And dunning period should start
@@ -21,5 +19,3 @@ Feature: Credit Card Attempts
 		| existing CA user	| Storage Subscription |
 		| existing US user 	| Service Subscription |
 		| existing US user 	| Storage Subscription |
-		
-	

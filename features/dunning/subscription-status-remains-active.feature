@@ -1,10 +1,8 @@
-
-Feature: After dunning period ends, subscriptions status reamins active
-
-	Scenario Outline: Storage/service Subscription stays active when the account dunned
+Feature: Subscriptions status reamins active after dunning period ends,
+	Scenario Outline: Storage/Service Subscription stays active when the account dunned
 		Given I am a billing agent
-		And I have dunned <user> account with <subscriptions> 
-		When the dunning period ends 
+		And I have dunned <user> account with <subscriptions>
+		When the dunning period ends
 		Then invoice status becomes "Not Paid"
 		And the subscription remains an active
 
