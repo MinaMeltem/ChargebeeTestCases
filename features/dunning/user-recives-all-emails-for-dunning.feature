@@ -7,7 +7,7 @@ Feature: User receives all emails for dunning
 		And I have an invalid payment method in the chargebee system
 		When my account is dunned
 		And my the status of unpaid item displays "Payment Due"
-		Then I should receive "Transaction Attempt Failed" notification emails in <specified retry days>
+		Then I should receive "Transaction Attempt Failed" notification emails in <specified resend days>
 		And after dunning period ends (17 days)
 		Then invoice status should change to "Not Paid"
 		And I should receive notification email.
@@ -16,7 +16,7 @@ Feature: User receives all emails for dunning
 
 
 		Examples:
-		| user 		| subscription 		| addon 	         | specified retry days  |
+		| user 		| subscription 		| addon 	         | specified resend days  |
 
 		| New CA user	| Service Subscription 	| Appointment Fee        |     0		 |
 		| New CA user 	| Storage Subscription 	| Monthly storage payment|     0  	         |
