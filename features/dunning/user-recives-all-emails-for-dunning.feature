@@ -7,16 +7,16 @@ Feature: User receives all emails for dunning
 		And I have an invalid payment method in the chargebee system
 		When my account is dunned
 		And my the status of unpaid item displays "Payment Due"
-		Then I should receive "Transaction Attempt Failed" notification emails in <specified resend days>
+		Then I should receive "Payment reminders email" in <.th day>
 		And after dunning period ends (17 days)
 		Then invoice status should change to "Not Paid"
-		And I should receive notification email.
+
 
 
 
 
 		Examples:
-		| user 		| subscription 		| addon 	         | specified resend days  |
+		| user 		| subscription 		| addon 	         | .th day  |
 
 		| New CA user	| Service Subscription 	| Appointment Fee        |     0		 |
 		| New CA user 	| Storage Subscription 	| Monthly storage payment|     0  	         |
@@ -26,8 +26,6 @@ Feature: User receives all emails for dunning
 		| New CA user 	| Storage Subscription 	| Monthly storage payment|     4  	         |
 		| New CA user	| Service Subscription 	| Appointment Fee        |     8		 |
 		| New CA user 	| Storage Subscription 	| Monthly storage payment|     8  	         |
-		| New CA user	| Service Subscription 	| Appointment Fee        |     17		 |
-		| New CA user 	| Storage Subscription 	| Monthly storage payment|     17  	         |
 
 		| New US user	| Service Subscription 	| Appointment Fee        |     0		 |
 		| New US user 	| Storage Subscription 	| Monthly storage payment|     0  	         |
@@ -37,8 +35,7 @@ Feature: User receives all emails for dunning
 		| New US user 	| Storage Subscription 	| Monthly storage payment|     4  	         |
 		| New US user	| Service Subscription 	| Appointment Fee        |     8		 |
 		| New US user 	| Storage Subscription 	| Monthly storage payment|     8  	         |
-		| New US user	| Service Subscription 	| Appointment Fee        |     17		 |
-		| New US user 	| Storage Subscription 	| Monthly storage payment|     17  	         |
+
 
 		| Ext. CA user	| Service Subscription 	| Appointment Fee        |     0		 |
 		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     0  	         |
@@ -48,8 +45,7 @@ Feature: User receives all emails for dunning
 		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     4  	         |
 		| Ext. CA user	| Service Subscription 	| Appointment Fee        |     8		 |
 		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     8  	         |
-		| Ext. CA user	| Service Subscription 	| Appointment Fee        |     17		 |
-		| Ext. CA user 	| Storage Subscription 	| Monthly storage payment|     17  	         |
+
 
 		| Ext. US user	| Service Subscription 	| Appointment Fee        |     0		 |
 		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     0  	         |
@@ -59,5 +55,3 @@ Feature: User receives all emails for dunning
 		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     4  	         |
 		| Ext. US user	| Service Subscription 	| Appointment Fee        |     8		 |
 		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     8  	         |
-		| Ext. US user	| Service Subscription 	| Appointment Fee        |     17		 |
-		| Ext. US user 	| Storage Subscription 	| Monthly storage payment|     17  	         |
