@@ -1,4 +1,3 @@
-
 Feature: User receives all emails for dunning
 	Scenario Outline: Email user on cadence if dunned
 		Given I am a <user>
@@ -10,11 +9,7 @@ Feature: User receives all emails for dunning
 		Then I should receive "Payment reminders email" in <.th day>
 		And after dunning period ends (17 days)
 		Then invoice status should change to "Not Paid"
-
-
-
-
-
+		
 		Examples:
 		| user 		| subscription 		| addon 	         | .th day  |
 
