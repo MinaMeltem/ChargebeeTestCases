@@ -9,19 +9,19 @@
 
 * EMAILS v1.
 * [X] Payments & Credits
-			* One-time charge is successful
-			* Initial/Recurring charge is successful
-			* Refund is initiated - Refund is successful
+			- One-time charge is successful
+			- Initial/Recurring charge is successful
+			- Refund is initiated - Refund is successful
 * [ ] Invoice Receipt
-			* One Time Invoices
-			* All Invoices
+			- One Time Invoices
+			- All Invoices
 * [ ] Credit Note Emails
-			* Adjustment credit note is manually created
-			* Refundable credit note is manually created
-			* Credit note is allocated
+			- Adjustment credit note is manually created
+			- Refundable credit note is manually created
+			- Credit note is allocated
 * [ ] Payment Failure
 * [X] Dunning for Online Payment - In Dunning section
 * [X] Invalid Payment Account
-			* 5 day(s) before expiry
-			* On card expiration
-			* When payment method becomes Invalid
+			- 5 day(s) before expiry
+			- On card expiration
+			- When payment method becomes Invalid
