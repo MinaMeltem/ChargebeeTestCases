@@ -1,7 +1,7 @@
 ### Chargebee  BDD Test Cases in Gherkin ###
 
 * DUNNING v1.
-  * [X] Dunning Starts
+  * [X Dunning Starts
   * [X] Dunning Emails
   * [X] Subscriptions Status
   * [X] Credit Card Attempts
@@ -9,9 +9,9 @@
 
 * EMAILS v1.
 * [X] Payments & Credits
-			- One-time charge is successful
-			- Initial/Recurring charge is successful
-			- Refund is initiated - Refund is successful
+	-	One-time charge is successful
+	-	Initial/Recurring charge is successful
+	-	Refund is initiated - Refund is successful
 * [ ] Invoice Receipt
 			- One Time Invoices
 			- All Invoices
