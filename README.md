@@ -21,7 +21,7 @@
 	-	Credit note is allocated
 * [ ] Payment Failure
 * [X] Dunning for Online Payment - In Dunning section
-* [X] Invalid Payment Account
+* [ ] Invalid Payment Account
 	-	5 day(s) before expiry
 	-	On card expiration
 	-	When payment method becomes Invalid
