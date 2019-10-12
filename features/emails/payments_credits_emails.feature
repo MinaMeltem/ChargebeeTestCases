@@ -1,6 +1,5 @@
 Feature: Payments & Credits
-	Scenario Outline: User receives confrimation email after One-time AddOn item charged from his account via 
-	                  Chargebee or Rocket system
+	Scenario Outline: User receives confrimation email after One-time AddOn item charged from his account via Chargebee or Rocket system
 	  Given I'm a business agent
 		And I have a <user> account with valid payment method
 		And I added one-time charge <addon item> in the account via <system>
@@ -19,8 +18,8 @@ Feature: Payments & Credits
 		| Ext. CA User	| Appointment Fee	| Rocket	|
 		| Ext. US User	| Mattress Bag Fee	| Rocket	|
 
-	Scenario Outline: User receives confrimation email after one-time custom payment
-			  charged by using AddCharge in chargebee system
+
+	Scenario Outline: User receives confrimation email after one-time custom payment charged by using AddCharge in chargebee system
 		Given I'm a business agent
 		And I have a <user> account with valid payment method
 		And I charged one-time custom payment from the account via "Add Charge" menu in chargebee UI
@@ -52,4 +51,23 @@ Feature: Payments & Credits
 		| New CA User	| Monthly storage plan payment |
 		| Ext.CA User	| Monthly protection payment   |
 		| New US User	| Monthly storage plan payment |
-		| Ext.US User	| Monthly protection payment   | 
+		| Ext.US User	| Monthly protection payment   |
+
+
+	Scenario Outline: User receives Refund Initiayted email
+		Given I'm a business agent
+		And I have a <user> account
+		And there is paid invoice in the account
+		When I navigate to invoice detail page in user account
+		And I initiate a refund bu using a "Issue a refund" option
+		Then as soon as innitiation complete, user should "Your refund is on the way" email from chargebee account.
+
+		Examples:
+		| User		|
+		| New CA User	|
+		| New US User	|
+		| Ext. CA User	|
+		| Ext. US User	|
+		| New US User	|
+		| Ext. CA User	|
+		| Ext. US User	|
