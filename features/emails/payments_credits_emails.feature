@@ -60,7 +60,26 @@ Feature: Payments & Credits
 		And there is paid invoice in the account
 		When I navigate to invoice detail page in user account
 		And I initiate a refund bu using a "Issue a refund" option
-		Then as soon as innitiation complete, user should "Your refund is on the way" email from chargebee account.
+		Then as soon as innitiation complete, user should receive "Your refund is on the way" email from chargebee account.
+
+		Examples:
+		| User		|
+		| New CA User	|
+		| New US User	|
+		| Ext. CA User	|
+		| Ext. US User	|
+		| New US User	|
+		| Ext. CA User	|
+		| Ext. US User	|
+
+	Scenario Outline: User receives Refund successful email
+		Given I'm a business agent
+		And I have a <user> account
+		And there is an issued invoice for a refund in the account
+		And invoice status is "Credit Issued ${amount}"
+		When refund is sucessfully completed
+		And user received the refund
+		Then user should receive " Your payment has been refunded " email from chargebee account.
 
 		Examples:
 		| User		|
