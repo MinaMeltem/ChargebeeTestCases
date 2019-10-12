@@ -10,8 +10,11 @@
 * EMAILS v1.
 * [X] Payments & Credits
 	-	One-time charge is successful
+		- Addon From Charge and Rocket
+		- AddCharge only from chargebee
 	-	Initial/Recurring charge is successful
-	-	Refund is initiated - Refund is successful
+	-	Refund is initiated
+	- Refund is successful
 * [ ] Invoice Receipt
 	-	One Time Invoices
 	-	All Invoices
