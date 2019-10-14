@@ -37,7 +37,7 @@ Feature: Invalid Payment Methods
 		Then I should receive "Your payment method is Invalid" email
 
 		Examples:
-		| User		|cd
+		| User		|
 		| New CA User	|
 		| New US User	|
 		| Ext. CA User	|
