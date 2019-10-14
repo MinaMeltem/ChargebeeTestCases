@@ -54,7 +54,7 @@ Feature: Payments & Credits
 		| Ext.US User	| Monthly protection payment   |
 
 
-	Scenario Outline: User receives Refund Initiayted email
+	Scenario Outline: User receives Refund Initiated email
 		Given I'm a business agent
 		And I have a <user> account
 		And there is paid invoice in the account
@@ -75,8 +75,8 @@ Feature: Payments & Credits
 	Scenario Outline: User receives Refund successful email
 		Given I'm a business agent
 		And I have a <user> account
-		And there is an issued invoice for a refund in the account
-		And invoice status is "Credit Issued ${amount}"
+		And there is an invoice that is issued for refund
+		And its status is "Credit Issued ${amount}"
 		When refund is sucessfully completed
 		And user received the refund
 		Then user should receive " Your payment has been refunded " email from chargebee account.
