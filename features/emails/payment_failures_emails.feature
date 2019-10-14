@@ -6,7 +6,7 @@ Feature: Payment Failures Emails
 		And transaction fails
 		Then I receive "Payment Failed" email
 		Examples:
-		| User		|
+		| User		|cd
 		| New CA User	|
 		| New US User	|
 		| Ext. CA User	|
