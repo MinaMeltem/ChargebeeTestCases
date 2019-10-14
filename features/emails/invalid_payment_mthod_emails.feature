@@ -9,7 +9,7 @@ Feature: Invalid Payment Methods
 		Then I should receive a "Your payment method will expire soon" email from Chrgebee system
 
 		Examples:
-		| User		|cd
+		| User		|
 		| New CA User	|
 		| New US User	|
 		| Ext. CA User	|
@@ -23,7 +23,7 @@ Feature: Invalid Payment Methods
 		Then I should receive "Your payment method will expire soon" email
 
 		Examples:
-		| User		|cd
+		| User		|
 		| New CA User	|
 		| New US User	|
 		| Ext. CA User	|
